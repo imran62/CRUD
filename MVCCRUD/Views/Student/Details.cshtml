@@ -34,6 +34,27 @@
             @Html.DisplayFor(model => model.EnrollmentDate)
         </dd>
 
+        <!-- 1- M relation of Courses add courses table foreach loop
+            lazy loading data is loaded first time when it is required-->
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Course Title</th>
+                    <th>Grade</th>
+                </tr>
+                @foreach (var item in Model.Enrollments)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Course.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Grade)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <p>
